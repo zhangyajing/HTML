@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>WeChat对话框</title>
+		<style type="text/css">
+		*{ margin: 0;padding: 0;font-family: arial; font-family:"华文行楷","微软雅黑"; }
+		img{ border: none; }
+		li{ list-style: none;}
+		.clear:after{content: '';display: block;clear: both;}
+		a{ text-decoration: none; }
+		#wrap{ width: 289px;height: 594px;background: url(bg.png) no-repeat;
+			   position: relative;margin: 80px auto 0;padding-top: 87px; }
+		#content{ width: 238px;height: 420px;margin: 0 auto;
+			      background: url(m_bg.png) no-repeat; }
+		#message{ width: 218px;height: 350px;padding: 10px;overflow: auto; }	
+		#consloe{ width: 238px;height: 50px;position: relative;background: #e4eeea; }
+		#headimg{ position: absolute;left: 4px;top: 8px;width: 32px;height: 36px; }
+		#text{ position: absolute;left: 42px;top: 7px;width: 132px;height: 34px;
+			   margin-right: 4px;border: 2px solid #CCC;border-radius: 5px;
+			   font-size: 14px;font-family: "微软雅黑";outline: none;padding-left: 4px;
+			   line-height: 34px;}
+		#btn{ position: absolute;right: 4px;width: 40px;height: 34px;top: 8px;
+			 border-radius: 5px;background: rgba(135,245,197,0.7);
+			 border: 1px solid rgba(28,245,150,0.8); outline: none;
+		     font-size: 14px;font-family: "微软雅黑";text-align: center;}
+		#bg{ position: absolute;background: rgba(277,38,229,0.7);width: 140px;
+			 border:1px solid rgba(229,38,146,0.8);border-radius: 10px; text-align: center;
+			 left: 70px;bottom: 220px;display: none;}
+		#bg a{ font-size: 12px;color: #3d3d3f;line-height: 20px;}
+		#bg a:hover{ color: #101011; }
+
+		.left,.right:{margin-bottom: 5px;}
+		#left2,#right2{ margin-top: 2px;padding: 6px 6px 1px;line-height: 24px;
+						font-size: 16px;border-radius: 30px;}
+		#left1{ float: left;margin-left: 5px;}
+		#left2{ float: left;background: rgba(222,214,231,0.5);border: 1px solid rgba(136,132,139,0.5);}
+		#right1{ float: right;margin-left: 5px;}
+		#right2{ float: right;background: rgba(213,244,211,0.5);border: 1px solid rgba(33,198,24,0.5);}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="content">
+				<div id="message">
+					
+				</div>
+				<div id="consloe">
+					<span id="headimg">
+						<img src="2.png" id="img"/>
+					</span>
+					<input id="text" type="text"/>
+					<input id="btn" type="button" value="发送"/>
+				</div>
+			</div>
+			<div id="bg">
+				<a href="http://www.miaov.com/2013/">不想输入内容你就点我！</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var oBtn = document.getElementById('btn');
+			var oText = document.getElementById('text');
+			var oImg = document.getElementById('img');
+			var oMessage = document.getElementById('message');
+			var oBg = document.getElementById('bg');
+			var oHeadimg = document.getElementById('headimg');
+			var onOff = true;
+
+			oBtn.onmousedown = function(){
+				oBtn.style.background = "rgba(227,38,229,0.7)";
+			}
+			oBtn.onmouseup = function(){
+				oBtn.style.background = "rgba(135,245,197,0.7)";
+			}
+			var a = function(){
+				oBtn.onclick = function(){
+					if(oText.value == ''){
+						oBg.style.display = "block";
+					}else{
+						oMessage.innerHTML = '<div class="left clear">' + '<div id="left1">' + oHeadimg.innerHTML + '</div>' + '<div id="left2">' + oText.value + '</div>' + '</div>' + oMessage.innerHTML;
+						oText.value = null;
+						oBg.style.display = "none";
+					}
+				}
+			}
+			var b = function(){
+				oBtn.onclick = function(){
+					if(oText.value == ''){
+						oBg.style.display = "block";
+					}else{
+						oMessage.innerHTML = '<div class="right clear">' + '<div id="right1">' + oHeadimg.innerHTML + '</div>' + '<div id="right2">' + oText.value + '</div>' + '</div>' + oMessage.innerHTML;
+						oText.value = null;
+						oBg.style.display = "none";
+					}
+				}
+			}
+			b();
+			oImg.onclick = function(){
+				if(onOff == true){
+					oImg.src = "1.png";
+					onOff = false;
+					a();
+				}else{
+					oImg.src = "2.png";
+					onOff = true;
+					b();
+				}
+			}
+		</script>
+	</body>
+</html>
