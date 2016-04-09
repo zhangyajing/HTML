@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<style type="text/css">
+		div{
+			width: 280px;
+			height: 250px;
+			border: 1px solid black;
+			background: #F1F1F1;
+			padding: 10px;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		var oDiv = document.getElementById('div1');
+		var oStrong = document.getElementById('strong1');
+		var oText = document.getElementById('text1');
+		var oBtn = document.getElementById('but1');
+		oBtn.onclick = function(){
+			oDiv.innerHTML += oStrong.innerHTML + oText.value +'<br />';
+			oText.value = null;
+		};
+	};
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+	<strong id="strong1">cherish:</strong>
+	<input id="text1" type="text"/>
+	<input id="but1" type="button" value="提交"/>
+</body>
+</html>
