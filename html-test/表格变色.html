@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>demo</title>
+	<script type="text/javascript">
+		//表格变色
+		var hang = parseInt(prompt("请输入行数:"));
+		var lie = parseInt(prompt("请输入列数:"));
+		var yanse = prompt("请输入颜色:");
+		function biaoge(c1,r1,c2){
+			document.write('<table border=1>');
+			for(var i=1;i<=c1;i++){
+				if(i%2==0){
+					document.write('<tr bgcolor="'+c2+'">');
+				}else{
+					document.write('<tr>');
+				}
+
+				for(var j=1;j<=r1;j++){
+					document.write('<td>000</td>');
+				}
+				document.write('</tr>');
+			}
+			document.write('</table>');
+		}
+		biaoge(hang,lie,yanse);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
