@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<title>放大镜</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#left{
+			width: 400px;height: 400px;
+			border: 1px solid blue;float: left;
+			background: url(monkey.jpg) no-repeat;
+			position: relative;
+		}
+		#left #fangkuang{
+			width: 200px;height: 200px;
+			background: white;
+			opacity: 0.7;filter:alpha(opacity=70);
+			position: absolute;top: 0px;left: 0px;
+			display: none;
+		}
+		#left #cover{
+			width: 400px;height: 400px;
+			z-index: 3;position: absolute;
+			left: 0px;top: 0px;
+			opacity: 0;filter:alpha(opacity=0);
+		}
+		#right{
+			width: 400px;height: 400px;
+			border: 1px solid red;margin: 20px;
+			position: relative;float: left;
+			overflow: hidden;display: none;
+		}
+		#right #right_img{
+			position: absolute;top: 0px;left: 0px;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		var oLeft_dvi = document.getElementById('left');
+		var oFk = document.getElementById('fangkuang');
+		var oCover = document.getElementById('cover');
+		var oRight_div = document.getElementById('right');
+		var oRight_img = document.getElementById('right_img');
+		oLeft_dvi.onmouseover = function(){
+			oFk.style.display = 'block';
+			oRight_div.style.display = 'block';
+		}
+		oLeft_dvi.onmouseout = function(){
+			oFk.style.display = 'none';
+			oRight_div.style.display = 'none';
+		}
+		oCover.onmousemove = function(e){
+			var evt = e || window.event;//获得事件对象
+			m_left = evt.layerX || evt.offsetLeft;//获取鼠标距离左侧距离
+			fk_left = m_left -100;
+			if(fk_left<0){
+				fk_left = 0;
+			}
+			if(fk_left>200){
+				fk_left = 200;
+			}
+			oFk.style.left = fk_left + 'px';//将滑块的左侧距离计算出来
+			m_top = evt.layerY || evt.offsetTop;
+			fk_top = m_top - 100;
+			if(fk_top<0){
+				fk_top = 0;
+			}
+			if(fk_top>200){
+				fk_top = 200;
+			}
+			oFk.style.top = fk_top + 'px';
+
+			var right_left = fk_left*-2;
+			var right_top = fk_top*-2;
+			right_img.style.left = right_left+ 'px';
+			right_img.style.top = right_top+ 'px';
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="left">
+		<div id="fangkuang"></div>
+		<div id="cover"></div>
+	</div>
+	<div id="right">
+		<img src="monkey-800.jpg" id='right_img'>
+	</div>
+</body>
+</html>
