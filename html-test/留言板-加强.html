@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<title>留言板</title>
+	<style type="text/css">
+	*{
+		margin: 0;padding: 0;
+	}
+	#main{
+		width: 600px;margin: 0 auto;
+	}
+	#show{
+		width: 585px;border: 2px solid red;
+		background: #ccc;height: 400px;overflow: auto;
+	}
+	#main #show p{
+		font-size: 25px;line-height: 1.5em;
+		font-family: 微软雅黑;text-indent: 10px;
+	}
+	#msg{
+		width: 585px;height: 100px;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		var oBtn = document.getElementById('btn');
+		oBtn.onclick= function(){
+			var oId = document.getElementById('username');
+			var oPhone = document.getElementById('number');
+			var oMsg = document.getElementById('msg');
+			var oShow = document.getElementById('show');
+			var id = oId.value;
+			var phone = oPhone.value;
+			var msg = oMsg.value;
+			if(id=='' || phone== '' || msg== ''){
+				alert('输入的空内容，请重新填写！');
+				return false;
+			}
+			var newP = document.createElement('p');
+			newP.innerHTML = 'ID号：' + id + '<br>' + 'phone：' +phone + '&nbsp;' + 'msg:' + msg;
+			oShow.appendChild(newP);
+			oId.value = ''; oPhone.value = ''; oMsg.value = '';
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<div id="show">
+			<p>屌丝：美女你好</p>
+			<p>美女：呵呵</p>
+			<p>屌丝：我能请你吃顿饭吗？求赏个面子啊！</p>
+			<p>美女：滚蛋</p>
+		</div>
+		<br>
+		ID号：<textarea id='username' cols='30' rows='1'></textarea>
+		phone：<textarea id='number' cols='20' rows='1'></textarea>
+		<br><br>
+		<textarea id='msg' cols='30' rows='30'></textarea>
+		<br><br>
+		<input type='button' id='btn' value='提交留言'>
+	</div>
+</body>
+</html>

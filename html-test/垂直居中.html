@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<title>垂直居中</title>
+	<style type="text/css">
+	div{
+		width: 400px;
+		border: 2px solid red;
+		margin: 0 auto;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		function juzhong(){
+			var oDiv = document.getElementById('box');
+			var b_height = oDiv.offsetHeight;//获得div对象的高度
+			var w_height = document.documentElement.clientHeight;//获得浏览器高度
+			var top = (w_height-b_height)/2;
+			oDiv.style.marginTop = top + 'px';
+		}
+		juzhong();
+		window.onresize = function(){
+			juzhong();
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="box">今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！今天天气不错，太阳好大！</div>
+</body>
+</html>

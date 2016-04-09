@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>浮动广告</title>
+	<style type="text/css">
+		*{
+			margin: 0;padding: 0;
+		}
+		div{
+			width: 100px;height: 80px;
+			border: 1px solid red;background: blue;
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		var oDiv = document.getElementById('box');
+		var x=1,y=1;
+		setInterval(function(){
+			var old_left = oDiv.offsetLeft;
+			var new_left = old_left + 1*x;
+			var old_top = oDiv.offsetTop;
+			var new_top = old_top + 1*y;
+			var max_top =(document.documentElement.clientHeight - oDiv.offsetHeight);
+			var max_left = (document.documentElement.clientWidth - oDiv.offsetWidth);
+			if(new_top>=max_top || new_top ==0){
+				y = -1*y;
+			}
+			if(new_left>=max_left || new_left==0){
+				x = -1*x;
+			}
+			oDiv.style.left = new_left + 'px';
+			oDiv.style.top = new_top + 'px';
+		}, 10)
+	}
+	</script>
+</head>
+<body>
+	<div id='box'></div>
+</body>
+</html>

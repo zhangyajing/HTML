@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>增加上传框</title>
+	<style type="text/css">
+		#box{
+			width: 500px;height: 300px;
+			border: 1px solid red;
+			position: relative;
+			overflow: auto;
+		}
+		#update{
+			position: absolute;
+			margin: 5px;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload = function(){
+		var oBtn = document.getElementById('btn');
+		oBtn.onclick = function(){
+			var newInput = document.createElement('input');//创建input标签
+			// var aType = newInput.createAttribute('type');//给input标签添加type属性
+			// aType.value = 'file';//将type属性设置为file
+			newInput.type = 'file';//设置内置属性
+			
+			var oDiv = document.getElementById('box');
+			oDiv.appendChild(newInput);
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id='box'>
+		
+	</div>
+	<br>
+	<input type='button' id='btn' value='增加'>
+</body>
+</html>
