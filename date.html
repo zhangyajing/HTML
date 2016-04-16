@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Date</title>
+	<script type="text/javascript">
+		// var time = new Date(1990,11,17,18,20,0);
+		// alert(time);
+		window.onload = function(){
+			function daojishi(){
+				var timeStart = new Date();
+				var timeEnd = new Date(2016,3,18,0,0,0); 
+				var time = timeEnd.getTime() - timeStart.getTime();
+				var day = Math.floor(time/(24*60*60*1000));
+				time = time%(24*60*60*1000);
+				var hour = Math.floor(time/(60*60*1000));
+				time = time%(60*60*1000);
+				var min = Math.floor(time/(60*1000));
+				time = time%(60*1000);
+				var sec = Math.floor(time/1000);
+				document.getElementById('day').innerHTML = day;
+				document.getElementById('hour').innerHTML=hour;
+				document.getElementById('min').innerHTML=min;
+				document.getElementById('sec').innerHTML=sec;
+			}
+			daojishi();
+			setInterval(daojishi, 1000);
+		}		
+			
+	</script>
+</head>
+<body>
+	<div>距离4月18日零点还有<span id="day">0</span>天<span id="hour">0</span>小时<span id="min">0</span>分<span id="sec">0</span>秒</div>
+</body>
+</html>
